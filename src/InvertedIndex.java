@@ -2,11 +2,12 @@ import java.util.HashMap;
 import java.util.List;
 
 public class InvertedIndex {
-    private Token token;
-    private HashMap<Document, int> documentHashMap;
+    final Token token;
+    private final HashMap<Document, Integer> documentHashMap;
 
     public  InvertedIndex(Token token, List<Document> documents){
         this.token = token;
+        documentHashMap = new HashMap<>();
         documents.forEach(document -> {
             String term = token.getTerm();
             if(document.ContainsToken(term)) {
@@ -14,6 +15,8 @@ public class InvertedIndex {
                 documentHashMap.put(document,frequency );
             }
         });
+
+
 
     }
 }

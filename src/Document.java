@@ -1,10 +1,5 @@
-import org.junit.jupiter.api.Assertions;
-
 import java.io.File;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.util.ArrayList;
+
 import java.util.List;
 
 /**
@@ -12,10 +7,10 @@ import java.util.List;
  *
  */
 abstract class Document {
-    private List<Token> _token;
-    private String filepath;
+    private final Tokens tokens;
+    private final String filepath;
 
-    private String filename;
+    private final String filename;
 
     /**
      * A creator function to create a document type from a file
@@ -24,31 +19,18 @@ abstract class Document {
     public Document(File file) {
         this.filepath = file.getPath();
         this.filename = file.getName();
+        tokens = new Tokens();
 
     }
 
 
     public Token getToken(String word){
-        for (Token token: _token
-        ) {
-            if(word == token.getTerm()){
-                return token;
-            }
-
-        }
-        return null;
+        return tokens.getToken(word);
 
     }
     public boolean ContainsToken (String word){
 
-        for (Token token: _token
-             ) {
-            if(word == token.getTerm()){
-                return true;
-            }
-
-        }
-        return false;
+        return tokens.findToken(word);
 
     }
 
@@ -61,29 +43,35 @@ abstract class Document {
     abstract   List<String>  readContent(String filepath);
 
     /**
-     *
-     * @param fileContent
+     * tokenizes the content of the file
+     * @param fileContent the content of the file to be tokenized
+     * @return a list of tokens
      */
-    public  List<Token> tokenize(List<String> fileContent){
+    public Tokens tokenize(List<String> fileContent){
+        for (String word:fileContent
+             ) {
+            tokens.addToken(word);
+        }
         //TODO
-        return _token;
-
+        return tokens;
     }
 
 
-    public  void normalize(List<Token> fileContent){
+
+    public  void normalize(Tokens fileContent){
         //TODO
 
     }
-    public  void  stemWords(List<Token> tokens){
+    public  void  stemWords(Tokens tokens){
         //TODO
 
     }
     public void parse(){
-        List<String> fiecontent = readContent(filepath);
-        _token = tokenize(fiecontent);
-        normalize(_token);
-        stemWords(_token);
+        List<String> fileContent = readContent(filepath);
+        tokenize(fileContent);
+        normalize(tokens);
+        stemWords(tokens);
+
 
 
 
