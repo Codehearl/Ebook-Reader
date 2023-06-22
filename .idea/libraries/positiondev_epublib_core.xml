@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="positiondev.epublib.core" type="repository">
+    <properties maven-id="com.positiondev.epublib:epublib-core:3.1" />
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/positiondev/epublib/epublib-core/3.1/epublib-core-3.1.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/net/sf/kxml/kxml2/2.3.0/kxml2-2.3.0.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/xmlpull/xmlpull/1.1.3.4d_b4_min/xmlpull-1.1.3.4d_b4_min.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/slf4j/slf4j-api/1.6.1/slf4j-api-1.6.1.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/slf4j/slf4j-simple/1.6.1/slf4j-simple-1.6.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

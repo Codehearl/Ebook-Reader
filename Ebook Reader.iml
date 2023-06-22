@@ -39,5 +39,6 @@
         <SOURCES />
       </library>
     </orderEntry>
+    <orderEntry type="library" name="positiondev.epublib.core" level="project" />
   </component>
 </module>
