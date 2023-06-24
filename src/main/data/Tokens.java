@@ -1,3 +1,5 @@
+package main.data;
+
 import java.util.HashSet;
 
 import java.util.Objects;

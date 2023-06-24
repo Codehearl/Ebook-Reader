@@ -1,3 +1,4 @@
+package main.data;
 
 import java.util.Objects;
 

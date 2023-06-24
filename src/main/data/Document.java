@@ -1,3 +1,5 @@
+package main.data;
+
 import java.io.File;
 
 import java.util.List;
@@ -6,7 +8,7 @@ import java.util.List;
  * A class that stores the details of a particular document and performs necessary operations on it
  *
  */
-abstract class Document {
+public abstract class Document {
     private final Tokens tokens;
     private final String filepath;
 

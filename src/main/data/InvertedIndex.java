@@ -1,3 +1,5 @@
+package main.data;
+
 import java.util.HashMap;
 import java.util.List;
 
