@@ -3,6 +3,7 @@ package main.data;
 import java.io.File;
 import java.io.FileInputStream;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import  nl.siegmann.epublib.domain.Book;
 import  nl.siegmann.epublib.domain.Resource;
@@ -18,18 +19,28 @@ public class Epub extends Document{
     }
 
     @Override
-    List<String> readContent(String filePath) {
+    public  List<String> readContent() {
         List<String> contents = new ArrayList<>();
 
         try {
 
             EpubReader epubReader = new EpubReader();
 
-            Book book = epubReader.readEpub(new FileInputStream(filePath));
+            Book book = epubReader.readEpub(new FileInputStream(getFilepath()));
 
             for (Resource resource : book.getContents()) {
                 String content = new String(resource.getData());
-                contents.add(content);
+                content = content.replaceAll("<[^>]+>"," ");
+                String[] split = content.split(" ");
+
+                for (String item: split
+                     ) {
+
+
+                    if (!item.isEmpty() && !item.isBlank()) contents.add(normalize(item));
+                }
+
+
             }
         } catch (Exception e) {
             e.printStackTrace();

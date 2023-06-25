@@ -2,10 +2,23 @@ package main.data;
 
 import java.util.HashSet;
 
+import java.util.List;
 import java.util.Objects;
 
 public class Tokens  {
     private final HashSet<Token> tokens;
+
+    public HashSet<Token> getTokens() {
+        return tokens;
+    }
+
+
+    public void output() {
+        for (Token token: tokens
+             ) {
+            System.out.println(token.getTerm() + " " + token.getFrequency());
+        }
+    }
 
     public Tokens() {
         tokens = new HashSet<>();

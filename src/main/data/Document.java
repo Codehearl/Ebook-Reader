@@ -2,6 +2,7 @@ package main.data;
 
 import java.io.File;
 
+import java.text.Normalizer;
 import java.util.List;
 
 /**
@@ -26,6 +27,7 @@ public abstract class Document {
     }
 
 
+
     public Token getToken(String word){
         return tokens.getToken(word);
 
@@ -39,10 +41,9 @@ public abstract class Document {
 
     /**
      *Reads the content of the file
-     * @param filepath The path of the document file
      * @return returns a list of text in the file
      */
-    abstract   List<String>  readContent(String filepath);
+    public abstract    List<String>  readContent();
 
     /**
      * tokenizes the content of the file
@@ -60,8 +61,13 @@ public abstract class Document {
 
 
 
-    public  void normalize(Tokens fileContent){
-        //TODO
+    public  String normalize(String word){
+        String normalizedWord = word.trim();
+        normalizedWord = normalizedWord.toLowerCase();
+        normalizedWord = Normalizer.normalize(normalizedWord, Normalizer.Form.NFD);
+        normalizedWord = normalizedWord.replaceAll("\\p{M}","");
+        normalizedWord = normalizedWord.replaceAll("[^a-z0-9 ]","");
+        return normalizedWord;
 
     }
     public  void  stemWords(Tokens tokens){
@@ -69,9 +75,8 @@ public abstract class Document {
 
     }
     public void parse(){
-        List<String> fileContent = readContent(filepath);
+        List<String> fileContent = readContent();
         tokenize(fileContent);
-        normalize(tokens);
         stemWords(tokens);
 
 
