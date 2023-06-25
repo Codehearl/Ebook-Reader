@@ -1,7 +1,8 @@
 **
 
-## Ebook Reader 
+## Introduction
 *An ebook reader created with java*
+
 **List of supported formats**
  - Epub
  - Mobi
