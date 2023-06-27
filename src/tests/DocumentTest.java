@@ -1,12 +1,10 @@
 package tests;
 
-import main.data.Epub;
+import main.data.documentTypes.Epub;
 import main.data.Tokens;
 import org.junit.jupiter.api.Assertions;
 
-import java.io.Console;
 import java.io.File;
-import java.util.ArrayList;
 import java.util.List;
 
 class DocumentTest {

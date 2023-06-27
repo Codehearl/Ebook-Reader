@@ -1,14 +1,16 @@
-package main.data;
+package main.data.documentTypes;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
+
+import main.data.Document;
 import  nl.siegmann.epublib.domain.Book;
 import  nl.siegmann.epublib.domain.Resource;
 import  nl.siegmann.epublib.epub.EpubReader;
-public class Epub extends Document{
+public class Epub extends Document {
     /**
      * A creator function to create a document type from a file
      *

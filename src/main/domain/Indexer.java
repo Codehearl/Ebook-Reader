@@ -1,6 +1,7 @@
 package main.domain;
 
 import main.data.*;
+import main.data.documentTypes.Epub;
 
 
 import java.io.File;
