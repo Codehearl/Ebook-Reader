@@ -20,6 +20,12 @@ public class Tokens  {
         }
     }
 
+    public void addTokens(Tokens newTokens){
+        for (Token token: newTokens.tokens
+             ) {
+            addToken(token.getTerm());
+        }
+    }
     public Tokens() {
         tokens = new HashSet<>();
     }

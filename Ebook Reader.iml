@@ -40,5 +40,6 @@
       </library>
     </orderEntry>
     <orderEntry type="library" name="positiondev.epublib.core" level="project" />
+    <orderEntry type="library" name="ca.rmen.porter.stemmer" level="project" />
   </component>
 </module>

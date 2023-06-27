@@ -1,16 +1,20 @@
 package main.data;
 
+import ca.rmen.porterstemmer.PorterStemmer;
+
 import java.io.File;
 
 import java.text.Normalizer;
 import java.util.List;
 
+
+
 /**
  * A class that stores the details of a particular document and performs necessary operations on it
  *
  */
-public abstract class Document {
-    private final Tokens tokens;
+public abstract class Document  {
+    private Tokens tokens = new Tokens();
     private final String filepath;
 
     private final String filename;
@@ -22,9 +26,9 @@ public abstract class Document {
     public Document(File file) {
         this.filepath = file.getPath();
         this.filename = file.getName();
-        tokens = new Tokens();
 
     }
+
 
 
 
@@ -33,7 +37,6 @@ public abstract class Document {
 
     }
     public boolean ContainsToken (String word){
-
         return tokens.findToken(word);
 
     }
@@ -55,7 +58,6 @@ public abstract class Document {
              ) {
             tokens.addToken(word);
         }
-        //TODO
         return tokens;
     }
 
@@ -70,18 +72,17 @@ public abstract class Document {
         return normalizedWord;
 
     }
-    public  void  stemWords(Tokens tokens){
-        //TODO
+    public  String  stemWord(String word){
+        PorterStemmer stemmer = new PorterStemmer();
+        String s = stemmer.stemWord(word);
+        return s;
+
 
     }
-    public void parse(){
+    public Tokens parse(){
         List<String> fileContent = readContent();
-        tokenize(fileContent);
-        stemWords(tokens);
-
-
-
-
+        tokens = tokenize(fileContent);
+        return tokens;
     }
 
     public String getFilepath() {

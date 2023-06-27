@@ -36,8 +36,9 @@ public class Epub extends Document{
                 for (String item: split
                      ) {
 
-
-                    if (!item.isEmpty() && !item.isBlank()) contents.add(normalize(item));
+                    String normal = normalize(item);
+                    normal = stemWord(normal);
+                    if (!item.isEmpty() && !item.isBlank()) contents.add(normal);
                 }
 
 
@@ -48,5 +49,7 @@ public class Epub extends Document{
 
         return contents;
     }
-    }
+
+
+}
 
